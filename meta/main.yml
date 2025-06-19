@@ -4,8 +4,7 @@ galaxy_info:
   description: this role just simply installed https on rhel server and just deployig an static website 
   company: Deepak Sagar
   license: MIT
-  min_ansible_python_version: ">=3"
-  role_name: myrole
+  role_name: apache-role
   min_ansible_version: 2.1
   platforms:
     - name: RedHat
