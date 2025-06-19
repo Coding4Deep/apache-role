@@ -1,0 +1,26 @@
+
+---
+# tasks file for myrole
+- name: "Ensure the system is up to date"
+  ansible.builtin.yum:
+    name: "*"
+    state: latest
+
+- name: "Install necessary packages"
+  ansible.builtin.yum:
+    name:
+      - git
+      - httpd
+    state: present
+    update_cache: yes
+
+- name: "Copy the application files to the web directory"
+  ansible.builtin.copy:
+    src: 'files/index.html'
+    dest: '/var/www/html/'
+
+- name: "Start and enable the Apache service"
+  ansible.builtin.service:
+    name: httpd
+    state: started
+    enabled: true
